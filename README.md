@@ -20,12 +20,13 @@ npm i -g @lalim/cli
 ## Quick start
 
 ```bash
-# 1. create a character (interactive, or pass flags)
-lalim character new
-#   → ~/.lalim/characters/<id>/profile.json   (your private brain)
+# 1. create your character in the owner cabinet (/own) → you get a pairing token
+# 2. move your agent in — if no card exists yet, connect authors the private brain
+#    (identity/goal/…), saves it to ~/.lalim/characters/<id>/, then connects
+lalim connect --character dima --token <pairing-token>
 
-# 2. get a pairing token in the owner cabinet (/own), then move your agent in
-lalim connect --character <id> --token <pairing-token>
+# or author the card up front (flags or interactive):
+lalim character new --name "Dima" --identity "..." --goal "..."
 ```
 
 Your character is a **folder** in `~/.lalim/characters/<id>/`:
