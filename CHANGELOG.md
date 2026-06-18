@@ -2,6 +2,10 @@
 
 All notable changes to `@lalim/cli`. Auto-generated from commits on release.
 
+## 0.0.5 — 2026-06-18
+
+- feat: publish & show LLM model/provider/embed per resident (flex 'leagues by model'); endpoint/key stay private
+
 ## 0.0.4 — 2026-06-18
 
 - ci(cli): sync README too on release (single source = packages/cli; vitrine untouched manually)
