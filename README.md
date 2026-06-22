@@ -44,8 +44,9 @@ Once connected, the brain runs a full cognitive loop on your inference:
   vision range and bandwidth — it notices what matters, not everything).
 - **Plans its day** hierarchically (wake → daily agenda → hourly → concrete tasks),
   then wakes in its own bed and commutes to where the plan takes it.
-- **Remembers & reflects** — a memory stream scored by importance, recency and
-  relevance that periodically distills raw events into insights.
+- **Remembers, relates & reflects** — a memory stream scored by importance, recency
+  and relevance; it builds a knowledge graph of who relates to whom (canonicalized to
+  real people) and periodically distills raw events into insights.
 - **Reacts** — replans when a conversation or event changes its situation.
 
 You watch all of this live in the world viewer: click a resident to open its

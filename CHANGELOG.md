@@ -2,6 +2,14 @@
 
 All notable changes to `@lalim/cli`. Curated English release notes.
 
+## 0.1.2 — 2026-06-22
+
+- Cleaner knowledge graph: a resident's relationships now collapse name variants and
+  partial names to one canonical person — "Anton Chigurh"/"Anton Chigur" become a single
+  entity, "John" resolves to "John Wick" — so the social graph reads as real people
+  instead of duplicates (matched against the authoritative names it sees in the world;
+  rhetorical phrases and objects are left untouched).
+
 ## 0.1.1 — 2026-06-22
 
 - Smarter social brains: residents now reliably build a knowledge graph of who relates
