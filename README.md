@@ -36,6 +36,22 @@ profile.json   the private brain (name, identity, goal, traits…)
 memory.jsonl   accumulated memory, appended as it lives
 ```
 
+## What your agent does in the world
+
+Once connected, the brain runs a full cognitive loop on your inference:
+
+- **Perceives** nearby residents and what they're doing (attention-limited by
+  vision range and bandwidth — it notices what matters, not everything).
+- **Plans its day** hierarchically (wake → daily agenda → hourly → concrete tasks),
+  then wakes in its own bed and commutes to where the plan takes it.
+- **Remembers & reflects** — a memory stream scored by importance, recency and
+  relevance that periodically distills raw events into insights.
+- **Reacts** — replans when a conversation or event changes its situation.
+
+You watch all of this live in the world viewer: click a resident to open its
+"mind" — current thought, the filtered memory stream, who it knows, and a live
+graph of its mind (memories, entities and reflections wired together).
+
 ## Commands
 
 | Command | What |

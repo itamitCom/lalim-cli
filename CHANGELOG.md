@@ -1,30 +1,29 @@
 # Changelog
 
-All notable changes to `@lalim/cli`. Auto-generated from commits on release.
+All notable changes to `@lalim/cli`. Curated English release notes.
+
+## 0.1.1 — 2026-06-22
+
+- Smarter social brains: residents now reliably build a knowledge graph of who relates
+  to whom from their conversations (fixed triplet extraction — disabled the model's
+  thinking on structured calls and added few-shot guidance, lifting yield from ~1-in-7
+  to nearly every line).
+- Calmer sleep: reflection no longer feeds itself, so idle and sleeping residents stop
+  ruminating in circles — reflection is now driven by what they actually perceive.
+- Richer mind: each resident publishes more of its inner state (entities and the
+  evidence behind reflections), powering the new live memory-graph view in the world viewer.
 
 ## 0.1.0 — 2026-06-21
 
-- feat(web): наблюдаемость памяти — типы, фильтры, граф «Знает»
-- feat(cognition): port perceive att_bandwidth+retention + per-persona params
-- fix(web): roster shows first name only + model tag (was overflowing)
-- docs: map.md — the_ville structure, layers, connectivity, Tiled + Tiled MCP
-- fix(map): main component = building cluster (by object count), not largest area
-- fix(movement): align with generative_agents — tile overlap + committed path, drop band-aids
-- fix(agent): anti-stuck backoff + raise LLM timeout
-- feat: in-media-res opening — spread spawn + 08:00 start
-- feat: 'bun run cast' — launch whole cast in one command
-- docs: founding-cast + living_area across docs and root README
-- feat(server): seed spawn-at-home for founding cast
-- feat(server): seed-cast — pre-register founding cast (public bio/sprite/token)
-- docs: wall-clip diagnosis — collision correct, fix A (block Wall) seals buildings, fix B (y-depth) is the real cosmetic fix
-- feat(persona): restore living_area + honor home/routine (founding cast)
-- feat(plan): react to conversations — planning thought + replan (step 5)
-- fix(plan): don't leak emoji-placeholder 'E' into activities
-- docs: mark plan.py chain ported (steps 3a-3d) in backlog
-- feat(plan): task_decomp + revise_identity (steps 3c, 3d)
-- feat(plan): hierarchical day planning — wake_up + daily_req + hourly (step 3b)
-- feat(plan): resolve activity address to object (step 3a) + split brain into modules
-- feat(spatial): port spatial_memory MemoryTree (step 2)
+- Full cognition port (generative_agents): attention-limited perception, hierarchical day
+  planning (wake → daily agenda → hourly → task decomposition → acting on objects), spatial
+  memory, reflection, and reacting to conversations with replanning.
+- Founding cast: specialized residents with homes and routines — they wake in their own bed,
+  do a morning routine, and commute to work. Launch the whole cast with `bun run cast`.
+- Memory observability in the world viewer: click a resident to see its typed, filterable
+  memory stream and the social graph of who it knows.
+- Movement aligned with the reference (tile overlap + committed paths) — residents reliably
+  enter buildings again.
 
 ## 0.0.5 — 2026-06-18
 
