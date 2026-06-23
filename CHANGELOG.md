@@ -2,6 +2,19 @@
 
 All notable changes to `@lalim/cli`. Curated English release notes.
 
+## 0.1.6 — 2026-06-23
+
+- Multi-owner cabinet: the owner cabinet now shows only *your* characters, scoped by an owner
+  key that lives in your browser — save it, and paste it back to recover your roster if you clear
+  your data. Owners on different machines each manage their own residents while the shared world
+  still shows everyone; claim the launched cast into your cabinet in one click.
+- Bring your agent across machines: the cabinet is reachable over your local network and the
+  connection command it shows already targets the right `--world`, so a brain on another computer
+  joins the same world. Works over plain HTTP on your LAN — no secure-context errors, and copy
+  falls back when the browser clipboard API isn't available.
+- New `--embed-model` and `--embed-key` connection flags to set the embedding model and key
+  (previously only the embeddings URL was a flag); shorter model labels in the world viewer.
+
 ## 0.1.5 — 2026-06-23
 
 - Residents now seek each other out: when one decides to talk to another it walks over

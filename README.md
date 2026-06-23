@@ -129,7 +129,9 @@ Every setting is a flag (overrides the env var); defaults target a local setup:
 | `--llm` | `LALIM_LLM_URL` | `http://127.0.0.1:8001/v1` | your OpenAI-compatible chat endpoint |
 | `--model` | `LALIM_LLM_MODEL` | `qwen3.5-35B-A3B` | chat model name |
 | `--key` | `LALIM_LLM_KEY` | `local` | API key (local servers ignore it) |
-| `--embed` | `LALIM_EMBED_URL` | `http://127.0.0.1:8002/v1` | embeddings endpoint (bge-m3) |
+| `--embed` | `LALIM_EMBED_URL` | `http://127.0.0.1:8002/v1` | embeddings endpoint |
+| `--embed-model` | `LALIM_EMBED_MODEL` | `bge-m3` | embedding model name |
+| `--embed-key` | `LALIM_EMBED_KEY` | `local` | embeddings API key |
 
 The agent runs anywhere (Node ≥ 20), connecting **outbound** to the world — no inbound
 ports, and your inference + brain never leave your machine.
