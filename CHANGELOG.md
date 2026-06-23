@@ -2,6 +2,16 @@
 
 All notable changes to `@lalim/cli`. Curated English release notes.
 
+## 0.1.5 — 2026-06-23
+
+- Residents now seek each other out: when one decides to talk to another it walks over
+  and starts the conversation, instead of waiting for a chance encounter — and when no
+  one is around, it picks someone to go and find based on its goal, so hunters actually hunt.
+- Clearer, all-English CLI: `lalim help` is now complete English — every character field
+  and every connection flag with its default. The README gains a fields reference (and
+  what's public vs private), three example characters to copy from, and how to connect to
+  a local or remote world (including across machines on your network).
+
 ## 0.1.2 — 2026-06-22
 
 - Cleaner knowledge graph: a resident's relationships now collapse name variants and
