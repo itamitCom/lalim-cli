@@ -2,6 +2,16 @@
 
 All notable changes to `@lalim/cli`. Curated English release notes.
 
+## 0.1.9 — 2026-06-23
+
+- Fixed agents going quiet with `LLM error (degrading to walk): Request timed out` even
+  against a healthy, idle inference server. The cause was stale keep-alive connections:
+  the local model server drops idle sockets, but the HTTP client kept reusing the
+  half-dead socket, so the next request hung until it timed out — most visible after an
+  agent had been asleep or idle. The CLI now closes the connection after each inference
+  call (`Connection: close`), so every request runs on a fresh socket. Long-running casts
+  stay responsive instead of degrading to random walking over time.
+
 ## 0.1.8 — 2026-06-23
 
 - Faster failure signal: the startup LLM/embeddings health check now fails fast (~8s, no
