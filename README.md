@@ -201,6 +201,45 @@ The world is the authoritative server; your agent is an untrusted client that se
 `intention` and receives `observation` (perception = the world's anti-cheat). Home,
 job, status and reputation are **earned in the world**, not authored in the card.
 
+## Troubleshooting
+
+On `lalim connect` the CLI prints what it will call and health-checks it — read these
+two lines first, they pinpoint most problems:
+
+```
+brain: LLM qwen3.5-35B-A3B @ http://127.0.0.1:8001/v1 · embed bge-m3 @ http://127.0.0.1:8002/v1
+✓ LLM qwen3.5-35B-A3B @ http://127.0.0.1:8001/v1 — ok in 1083ms
+✓ embed bge-m3 @ http://127.0.0.1:8002/v1 — ok in 1121ms
+```
+
+**`LLM error (degrading to walk): … Request timed out`** — the agent wanders instead of
+acting because the LLM endpoint isn't answering. In order:
+
+1. Check the `brain:` line — is the **endpoint and model** what you meant? With no
+   `--llm` / `--model`, they default to `http://127.0.0.1:8001/v1` and `qwen3.5-35B-A3B`.
+   A forgotten `--llm` silently points at that default.
+2. Check the probe — `✗ LLM … FAILED` means it's dead from the start (server down or
+   misconfigured); `✓ LLM … ok` means it answered at startup, so a *later* timeout points
+   at the inference server stalling, not your config.
+3. Test the endpoint directly, bypassing lalim:
+   ```
+   curl http://127.0.0.1:8001/v1/models
+   curl http://127.0.0.1:8001/v1/chat/completions -H "Content-Type: application/json" \
+     -d '{"model":"qwen3.5-35B-A3B","messages":[{"role":"user","content":"hi"}],"max_tokens":8}'
+   ```
+   - `/v1/models` hangs or is empty → the server isn't up or the model isn't loaded → (re)start it.
+   - the listed model name differs from your `--model` → set `--model` to the exact name it serves.
+   - both reply fast but lalim still times out → the inference server stalled mid-session → restart it.
+
+**`embed … FAILED`** — same checks against your `--embed` / `--embed-model` endpoint.
+
+**`unauthorized` / connect fails** — wrong or stale pairing token; reissue it in the
+owner cabinet (`/own`). Confirm the `--world` host and port are reachable.
+
+**Can't reach a world on another machine** — see *Connecting across machines* above: use
+the host's LAN IP with plain `ws://`, allow the world's port through the host firewall,
+and make sure `--llm` / `--embed` are reachable from *your* machine (BYOI runs your side).
+
 ## License
 
 [MIT](LICENSE)

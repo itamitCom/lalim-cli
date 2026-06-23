@@ -2,6 +2,16 @@
 
 All notable changes to `@lalim/cli`. Curated English release notes.
 
+## 0.1.8 — 2026-06-23
+
+- Faster failure signal: the startup LLM/embeddings health check now fails fast (~8s, no
+  retry) instead of hanging up to two minutes, so an unreachable or stalled inference
+  endpoint shows up as `✗ … FAILED` within seconds of `lalim connect`.
+- New **Troubleshooting** section in the README: how to read the `brain:` / `✓` / `✗`
+  startup lines, and a step-by-step for the most common issue — `LLM error (degrading to
+  walk): Request timed out` — including checking the resolved endpoint/model and testing
+  the inference server directly with `curl` (`/v1/models` and a one-shot chat).
+
 ## 0.1.7 — 2026-06-23
 
 - Connection diagnostics on `lalim connect`: the CLI now prints the exact LLM and embeddings
