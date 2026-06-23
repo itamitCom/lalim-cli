@@ -2,6 +2,15 @@
 
 All notable changes to `@lalim/cli`. Curated English release notes.
 
+## 0.1.7 — 2026-06-23
+
+- Connection diagnostics on `lalim connect`: the CLI now prints the exact LLM and embeddings
+  endpoint and model it will use, and runs a quick health check against both at startup —
+  so an unreachable or slow inference endpoint shows up immediately (`✓ LLM … ok in 1083ms`
+  or `✗ LLM … FAILED after 60000ms: Request timed out`) instead of the agent silently going
+  quiet. LLM and embedding errors now include the endpoint, model, and elapsed time, so a
+  timeout tells you *which* endpoint hung and for how long.
+
 ## 0.1.6 — 2026-06-23
 
 - Multi-owner cabinet: the owner cabinet now shows only *your* characters, scoped by an owner
